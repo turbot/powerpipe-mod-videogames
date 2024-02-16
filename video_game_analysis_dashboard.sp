@@ -70,7 +70,7 @@ dashboard "video_game_analysis_dashboard" {
     # Chart: Genre Distribution
     chart {
       type  = "donut"
-      title = "Genre Distribution"
+      title = "Top 10 Genre Distribution"
       query = query.genre_distribution
       width = 6
     }
@@ -194,7 +194,8 @@ query "genre_distribution" {
     group by
       genres
     order by
-      "Number Of Games" desc;
+      "Number Of Games" desc
+    limit 10;
   EOQ
 }
 
