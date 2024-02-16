@@ -2,6 +2,8 @@
 
 Analyze video games data using MySQL and PowerPipe.
 
+![video-game-analysis-dashboard](https://github.com/turbot/powerpipe-mod-video-game/assets/72413708/4cfc4e02-4ccd-49a3-9c60-d73594c6d108)
+
 ## Installation
 
 Download and install Powerpipe (https://powerpipe.io/downloads) and MySQL (https://dev.mysql.com/downloads/mysql/). Or use Brew:
