@@ -71,7 +71,7 @@ dashboard "video_game_analysis_dashboard" {
     chart {
       type  = "donut"
       title = "Top 10 Genre Distribution"
-      query = query.genre_distribution
+      query = query.top_10_genre_distribution
       width = 6
     }
 
@@ -184,7 +184,7 @@ query "top_10_games_by_user_ratings_count" {
   EOQ
 }
 
-query "genre_distribution" {
+query "top_10_genre_distribution" {
   sql = <<-EOQ
     select
       genres,
