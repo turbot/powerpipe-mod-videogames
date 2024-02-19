@@ -15,7 +15,7 @@ brew install turbot/tap/mysql
 
 ## Get the Dataset
 
-Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games).
+Log in to Kaggle, download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games).
 
 ## Enable MySQL server to read from local file
 
