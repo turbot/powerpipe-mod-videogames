@@ -34,9 +34,9 @@ dashboard "video_game_analysis_dashboard" {
     }
   }
 
-  # Container: Game and developer Analysis
+  # Container: Game and Developer Analysis
   container {
-    title = "Game and developer Analysis"
+    title = "Game and Developer Analysis"
 
     # Chart: Top 10 Games by User Score
     chart {
@@ -77,7 +77,7 @@ dashboard "video_game_analysis_dashboard" {
 
     # Chart: Average Platform Meta Score per Genre
     chart {
-      type  = "line"
+      type  = "column"
       title = "Average Platform Meta Score per Genre"
       query = query.average_platform_meta_score_per_genre
       width = 6
@@ -211,7 +211,7 @@ query "top_10_developers_by_game_count" {
     group by
       developer
     order by
-      "Game Count" desc
+      count(*) desc
     limit 10;
   EOQ
 }
@@ -228,7 +228,7 @@ query "top_10_publishers_by_game_count" {
     group by
       publisher
     order by
-      "Game Count" desc
+      count(*) desc
     limit 10;
   EOQ
 }
