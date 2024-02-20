@@ -1,32 +1,27 @@
 dashboard "video_game_analysis_dashboard" {
   title = "Video Game Analysis Dashboard"
 
-  # Container: Overview
   container {
     title = "Overview"
 
-    # Card: Total Games
     card {
       query = query.total_games
       width = 3
       type  = "info"
     }
 
-    # Card: Total Developers
     card {
       query = query.total_developers
       width = 3
       type  = "info"
     }
 
-    # Card: Total Publishers
     card {
       query = query.total_publishers
       width = 3
       type  = "info"
     }
 
-    # Card: Total Platforms Card
     card {
       query = query.total_platforms
       width = 3
@@ -34,11 +29,9 @@ dashboard "video_game_analysis_dashboard" {
     }
   }
 
-  # Container: Game and Developer Analysis
   container {
     title = "Game and Developer Analysis"
 
-    # Chart: Top 10 Games by User Score
     chart {
       type  = "column"
       title = "Top 10 Games by User Score"
@@ -50,7 +43,6 @@ dashboard "video_game_analysis_dashboard" {
       }
     }
 
-    # Chart: Top 10 Games by User Ratings
     chart {
       type  = "column"
       title = "Top 10 Games by User Ratings Count"
@@ -63,11 +55,9 @@ dashboard "video_game_analysis_dashboard" {
     }
   }
 
-  # Container: Genre and Platform Analysis
   container {
     title = "Genre and Platform Analysis"
 
-    # Chart: Genre Distribution
     chart {
       type  = "donut"
       title = "Top 10 Genre Distribution"
@@ -75,7 +65,6 @@ dashboard "video_game_analysis_dashboard" {
       width = 6
     }
 
-    # Chart: Average Platform Meta Score per Genre
     chart {
       type  = "column"
       title = "Average Platform Meta Score per Genre"
@@ -83,11 +72,10 @@ dashboard "video_game_analysis_dashboard" {
       width = 6
     }
   }
-  # Container: Top Developers and Publishers
+
   container {
     title = "Top Developers and Publishers"
 
-    # Chart: Top 10 Developers by Game Count
     chart {
       type  = "column"
       title = "Top 10 Developers by Game Count"
@@ -100,7 +88,6 @@ dashboard "video_game_analysis_dashboard" {
       }
     }
 
-    # Chart: Top 10 Publishers by Game Count
     chart {
       type  = "column"
       title = "Top 10 Publishers by Game Count"
@@ -114,6 +101,8 @@ dashboard "video_game_analysis_dashboard" {
     }
   }
 }
+
+# Chart Queries
 
 query "total_games" {
   sql = <<-EOQ
@@ -158,6 +147,8 @@ query "total_platforms" {
   EOQ
 }
 
+# Chart Queries
+
 query "top_10_games_by_user_score" {
   sql = <<-EOQ
     select
@@ -194,8 +185,25 @@ query "top_10_genre_distribution" {
     group by
       genres
     order by
-      "Number Of Games" desc
+      count(*) desc
     limit 10;
+  EOQ
+}
+
+query "average_platform_meta_score_per_genre" {
+  sql = <<-EOQ
+    select
+      genres,
+      avg(cast(substring_index(substring_index(substring_index(`platforms_info`, "'Platform Metascore': '", -1), "'", 1), "'", 1) as unsigned)) as "Average Platform Meta Score"
+    from
+      game_data
+    where
+      `platforms_info` like "%'Platform Metascore'%"
+      and genres is not null
+    group by
+      genres
+    order by
+      "Average Platform Meta Score" desc;
   EOQ
 }
 
@@ -230,22 +238,5 @@ query "top_10_publishers_by_game_count" {
     order by
       count(*) desc
     limit 10;
-  EOQ
-}
-
-query "average_platform_meta_score_per_genre" {
-  sql = <<-EOQ
-    select
-      genres,
-      avg(cast(substring_index(substring_index(substring_index(`platforms_info`, "'Platform Metascore': '", -1), "'", 1), "'", 1) as unsigned)) as "Average Platform Meta Score"
-    from
-      game_data
-    where
-      `platforms_info` like "%'Platform Metascore'%"
-      and genres is not null
-    group by
-      genres
-    order by
-      "Average Meta Score" desc;
   EOQ
 }
