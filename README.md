@@ -13,9 +13,18 @@ brew install turbot/tap/powerpipe
 brew install turbot/tap/mysql
 ```
 
-## Get the Dataset
+## Clone the Mod Repository
 
-Log in to Kaggle, download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games).
+```sh
+git clone https://github.com/turbot/powerpipe-mod-video-game.git
+cd powerpipe-mod-video-game
+```
+
+## Install the Dataset
+
+- Visit the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games).
+
+- Click on `Download` (Free signup to Kaggle is required).
 
 ## Enable MySQL server to read from local file
 
