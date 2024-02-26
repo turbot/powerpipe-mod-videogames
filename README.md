@@ -4,7 +4,9 @@ Analyze video games data using MySQL and PowerPipe.
 
 ![video-game-analysis-dashboard](https://github.com/turbot/powerpipe-mod-video-game/assets/72413708/4cfc4e02-4ccd-49a3-9c60-d73594c6d108)
 
-## Installation
+## Getting Started
+
+### Installation
 
 Download and install Powerpipe (https://powerpipe.io/downloads) and MySQL (https://dev.mysql.com/downloads/mysql/). Or use Brew:
 
@@ -13,45 +15,45 @@ brew install turbot/tap/powerpipe
 brew install turbot/tap/mysql
 ```
 
-## Clone the Mod Repository
+Clone:
 
 ```sh
 git clone https://github.com/turbot/powerpipe-mod-video-game.git
 cd powerpipe-mod-video-game
 ```
 
-## Install the Dataset
+Download the dataset:
 
-- Visit the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games).
+- Signup to [Kaggle](https://www.kaggle.com/account/login?phase=startRegisterTab&returnUrl=%2Fdatasets) 
+- Visit the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games)
+- Click on `Download`
 
-- Click on `Download` (Free signup to Kaggle is required).
-
-## Enable MySQL server to read from local file
+Enable MySQL server to read from local file:
 
 ```sh
 echo "local_infile = 1" >> /opt/homebrew/etc/my.cnf
 ```
 
-## Start MySQL server
+Start MySQL server:
 
 ```sh
 brew services start mysql
 ```
 
-## Create a MySQL Database
+Create a MySQL database:
 
 ```sh
 mysql -u root
 create database my_database;
 ```
 
-## Use the newly created Database
+Use the newly created database:
 
 ```sh
 use my_database;
 ```
 
-## Create a Table
+Create a table;
 
 ```sh
 create table game_data (
@@ -68,7 +70,7 @@ create table game_data (
 );
 ```
 
-## Load the Dataset into the Table
+Load the dataset into the table:
 
 ```sh
 load data local infile '/path/to/your/all_video_games.csv'
@@ -91,7 +93,7 @@ set
    platforms_info = @platforms_info;
 ```
 
-## Clone the Mod Repository
+Clone:
 
 ```sh
 git clone https://github.com/turbot/powerpipe-mod-youtuber.git
