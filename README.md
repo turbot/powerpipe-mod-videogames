@@ -42,7 +42,7 @@ mysqld
 Create a MySQL database:
 
 ```sh
-mysql -u root
+mysql -u <username>
 create database video_game;
 ```
 
@@ -104,7 +104,7 @@ cd powerpipe-mod-youtuber
 Run the dashboard and specify the DB connection string:
 
 ```sh
-powerpipe server --database mysql://root@/my_database
+powerpipe server --database mysql://<username>@/video_game
 ```
 
 ## Open Source & Contributing
