@@ -36,13 +36,13 @@ echo "local_infile = 1" >> /opt/homebrew/etc/my.cnf
 Start MySQL server:
 
 ```sh
-mysqld
+brew services start mysql
 ```
 
 Create a MySQL database:
 
 ```sh
-mysql -u <username>
+mysql -u root
 create database video_game;
 ```
 
@@ -104,7 +104,7 @@ cd powerpipe-mod-youtuber
 Run the dashboard and specify the DB connection string:
 
 ```sh
-powerpipe server --database mysql://<username>@/video_game
+powerpipe server --database mysql://root@/video_game
 ```
 
 ## Open Source & Contributing
