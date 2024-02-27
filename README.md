@@ -2,7 +2,7 @@
 
 Analyze video games data using MySQL and PowerPipe.
 
-![video-game-analysis-dashboard](https://github.com/turbot/powerpipe-mod-video-game/assets/72413708/4cfc4e02-4ccd-49a3-9c60-d73594c6d108)
+![video-game-analysis-dashboard](https://github.com/turbot/powerpipe-mod-video-game/assets/78197905/2dfaab17-c772-4c60-90a3-14466d270e93)
 
 ## Getting Started
 
