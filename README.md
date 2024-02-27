@@ -27,12 +27,6 @@ Download the dataset:
 
 - Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games) (requires signup with [Kaggle](https://www.kaggle.com/))
 
-Enable MySQL server to read from local file:
-
-```sh
-echo "local_infile = 1" >> /opt/homebrew/etc/my.cnf
-```
-
 Start MySQL server:
 
 ```sh
@@ -42,7 +36,7 @@ brew services start mysql
 Create a MySQL database:
 
 ```sh
-mysql -u root
+mysql -u root --local-infile=1
 create database video_game;
 ```
 
