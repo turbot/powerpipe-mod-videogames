@@ -21,32 +21,36 @@ Clone:
 git clone https://github.com/turbot/powerpipe-mod-video-game.git
 cd powerpipe-mod-video-game
 ```
-### Setup Data
 
-Download the dataset:
+### Configure Database
 
-- Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games) (requires signup with [Kaggle](https://www.kaggle.com/))
+Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games) and extract it in the current directory:
 
+```sh
+unzip ~/Downloads/archive.zip
+```
+
+TODO: Change starting instructions
 Start MySQL server:
 
 ```sh
 brew services start mysql
 ```
 
-Create a MySQL database:
+Connect to MySQL:
 
 ```sh
 mysql -u root --local-infile=1
-create database video_game;
 ```
 
-Use the newly created database:
+Create a database:
 
 ```sh
+create database video_game;
 use video_game;
 ```
 
-Create a table;
+Create a table:
 
 ```sh
 create table game_data (
@@ -63,7 +67,7 @@ create table game_data (
 );
 ```
 
-Load the dataset into the table:
+Load the dataset into the table (update `/path/to/your/all_video_games.csv`):
 
 ```sh
 load data local infile '/path/to/your/all_video_games.csv'
@@ -84,13 +88,6 @@ set
    user_score = nullif(@user_score, ''),
    user_ratings_count = nullif(@user_ratings_count, ''),
    platforms_info = @platforms_info;
-```
-
-Clone:
-
-```sh
-git clone https://github.com/turbot/powerpipe-mod-youtuber.git
-cd powerpipe-mod-youtuber
 ```
 
 ## Usage
