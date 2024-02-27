@@ -21,12 +21,11 @@ Clone:
 git clone https://github.com/turbot/powerpipe-mod-video-game.git
 cd powerpipe-mod-video-game
 ```
+### Setup Data
 
 Download the dataset:
 
-- Signup to [Kaggle](https://www.kaggle.com/account/login?phase=startRegisterTab&returnUrl=%2Fdatasets) 
-- Visit the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games)
-- Click on `Download`
+- Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games) (requires signup with [Kaggle](https://www.kaggle.com/))
 
 Enable MySQL server to read from local file:
 
@@ -37,20 +36,20 @@ echo "local_infile = 1" >> /opt/homebrew/etc/my.cnf
 Start MySQL server:
 
 ```sh
-brew services start mysql
+mysqld
 ```
 
 Create a MySQL database:
 
 ```sh
 mysql -u root
-create database my_database;
+create database video_game;
 ```
 
 Use the newly created database:
 
 ```sh
-use my_database;
+use video_game;
 ```
 
 Create a table;
