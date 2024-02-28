@@ -67,10 +67,10 @@ create table game_data (
 );
 ```
 
-Load the dataset into the table (update `/path/to/your/all_video_games.csv`):
+Load the dataset into the table:
 
 ```sh
-load data local infile '/path/to/your/all_video_games.csv'
+load data local infile '~/Downloads/all_video_games.csv'
 into table game_data
 fields terminated by ','
 enclosed by '"'
