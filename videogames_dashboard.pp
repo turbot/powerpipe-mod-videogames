@@ -1,29 +1,31 @@
-dashboard "video_game_analysis_dashboard" {
-  title = "Video Game Analysis Dashboard"
+dashboard "videogames" {
+
+  title         = "Video Games Dashboard"
+  documentation = file("./docs/videogames_dashboard.md")
 
   container {
     title = "Overview"
 
     card {
-      query = query.total_games
+      query = query.videogames_total
       width = 3
       type  = "info"
     }
 
     card {
-      query = query.total_developers
+      query = query.videogames_total_developers
       width = 3
       type  = "info"
     }
 
     card {
-      query = query.total_publishers
+      query = query.videogames_total_publishers
       width = 3
       type  = "info"
     }
 
     card {
-      query = query.total_platforms
+      query = query.videogames_total_platforms
       width = 3
       type  = "info"
     }
@@ -35,7 +37,7 @@ dashboard "video_game_analysis_dashboard" {
     chart {
       type  = "column"
       title = "Top 10 Games by User Score"
-      query = query.top_10_games_by_user_score
+      query = query.videogames_top_10_by_user_score
       width = 6
       series "user_score" {
         title = "User Score"
@@ -46,7 +48,7 @@ dashboard "video_game_analysis_dashboard" {
     chart {
       type  = "column"
       title = "Top 10 Games by User Ratings Count"
-      query = query.top_10_games_by_user_ratings_count
+      query = query.videogames_top_10_by_user_ratings_count
       width = 6
       series "user_ratings_count" {
         title = "User Ratings Count"
@@ -61,14 +63,14 @@ dashboard "video_game_analysis_dashboard" {
     chart {
       type  = "donut"
       title = "Top 10 Genre Distribution"
-      query = query.top_10_genre_distribution
+      query = query.videogames_top_10_genre_distribution
       width = 6
     }
 
     chart {
       type  = "column"
       title = "Average Platform Meta Score per Genre"
-      query = query.average_platform_meta_score_per_genre
+      query = query.videogames_average_platform_meta_score_per_genre
       width = 6
     }
   }
@@ -79,7 +81,7 @@ dashboard "video_game_analysis_dashboard" {
     chart {
       type  = "column"
       title = "Top 10 Developers by Game Count"
-      query = query.top_10_developers_by_game_count
+      query = query.videogames_top_10_developers_by_game_count
       width = 6
 
       series "Game Count" {
@@ -91,7 +93,7 @@ dashboard "video_game_analysis_dashboard" {
     chart {
       type  = "column"
       title = "Top 10 Publishers by Game Count"
-      query = query.top_10_publishers_by_game_count
+      query = query.videogames_top_10_publishers_by_game_count
       width = 6
 
       series "Game Count" {
@@ -104,7 +106,7 @@ dashboard "video_game_analysis_dashboard" {
 
 # Chart Queries
 
-query "total_games" {
+query "videogames_total" {
   sql = <<-EOQ
     select
       count(*) as "Total Games"
@@ -113,7 +115,7 @@ query "total_games" {
   EOQ
 }
 
-query "total_developers" {
+query "videogames_total_developers" {
   sql = <<-EOQ
     select
       count(distinct developer) as "Total Developers"
@@ -122,7 +124,7 @@ query "total_developers" {
   EOQ
 }
 
-query "total_publishers" {
+query "videogames_total_publishers" {
   sql = <<-EOQ
     select
       count(distinct publisher) as "Total Publishers"
@@ -131,7 +133,7 @@ query "total_publishers" {
   EOQ
 }
 
-query "total_platforms" {
+query "videogames_total_platforms" {
   sql = <<-EOQ
     select count(distinct substring_index(
         substring_index(
@@ -149,7 +151,7 @@ query "total_platforms" {
 
 # Chart Queries
 
-query "top_10_games_by_user_score" {
+query "videogames_top_10_by_user_score" {
   sql = <<-EOQ
     select
       title,
@@ -162,7 +164,7 @@ query "top_10_games_by_user_score" {
   EOQ
 }
 
-query "top_10_games_by_user_ratings_count" {
+query "videogames_top_10_by_user_ratings_count" {
   sql = <<-EOQ
     select
       title,
@@ -175,7 +177,7 @@ query "top_10_games_by_user_ratings_count" {
   EOQ
 }
 
-query "top_10_genre_distribution" {
+query "videogames_top_10_genre_distribution" {
   sql = <<-EOQ
     select
       genres,
@@ -190,7 +192,7 @@ query "top_10_genre_distribution" {
   EOQ
 }
 
-query "average_platform_meta_score_per_genre" {
+query "videogames_average_platform_meta_score_per_genre" {
   sql = <<-EOQ
     select
       genres,
@@ -207,7 +209,7 @@ query "average_platform_meta_score_per_genre" {
   EOQ
 }
 
-query "top_10_developers_by_game_count" {
+query "videogames_top_10_developers_by_game_count" {
   sql = <<-EOQ
     select
       developer,
@@ -224,7 +226,7 @@ query "top_10_developers_by_game_count" {
   EOQ
 }
 
-query "top_10_publishers_by_game_count" {
+query "videogames_top_10_publishers_by_game_count" {
   sql = <<-EOQ
     select
       publisher,

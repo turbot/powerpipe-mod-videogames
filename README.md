@@ -1,8 +1,22 @@
-# Video Game Analysis Mod for PowerPipe
+# Video Games Mod for Powerpipe
 
-Analyze video games data using MySQL and PowerPipe.
+Analyze video games data using MySQL and Powerpipe.
 
 ![video-game-analysis-dashboard](https://github.com/turbot/powerpipe-mod-video-game/assets/78197905/7374720a-84fd-44fe-9f9f-974e23b8e6a5)
+
+## Overview
+
+Dashboards can help answer questions like:
+
+- How many video games are currently cataloged in the database?
+- What is the total number of game developers?
+- How many publishers are involved in the video games listed?
+- Which are the top 10 video games rated by user score, and what scores did they achieve?
+- What are the top 10 game genres by the number of games, and how many games are there in each genre?
+
+## Documentation
+
+- **[Dashboards →](https://hub.powerpipe.io/mods/turbot/videogames/dashboards)**
 
 ## Getting Started
 
@@ -21,32 +35,35 @@ Clone:
 git clone https://github.com/turbot/powerpipe-mod-video-game.git
 cd powerpipe-mod-video-game
 ```
-### Setup Data
 
-Download the dataset:
+### Configure Database
 
-- Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games) (requires signup with [Kaggle](https://www.kaggle.com/))
+Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games) and extract it in the current directory:
 
-Start MySQL server:
+```sh
+unzip ~/Downloads/archive.zip
+```
+
+TODO: Change starting instructions to not use `brew` - Start MySQL server:
 
 ```sh
 brew services start mysql
 ```
 
-Create a MySQL database:
+Connect to MySQL:
 
 ```sh
 mysql -u root --local-infile=1
-create database video_game;
 ```
 
-Use the newly created database:
+Create a database:
 
 ```sh
+create database video_game;
 use video_game;
 ```
 
-Create a table;
+Create a table:
 
 ```sh
 create table game_data (
@@ -66,7 +83,7 @@ create table game_data (
 Load the dataset into the table:
 
 ```sh
-load data local infile '/path/to/your/all_video_games.csv'
+load data local infile '~/all_video_games.csv'
 into table game_data
 fields terminated by ','
 enclosed by '"'
@@ -84,13 +101,6 @@ set
    user_score = nullif(@user_score, ''),
    user_ratings_count = nullif(@user_ratings_count, ''),
    platforms_info = @platforms_info;
-```
-
-Clone:
-
-```sh
-git clone https://github.com/turbot/powerpipe-mod-youtuber.git
-cd powerpipe-mod-youtuber
 ```
 
 ## Usage
@@ -114,4 +124,4 @@ This repository is published under the [Apache 2.0 license](https://www.apache.o
 Want to help but not sure where to start? Pick up one of the `help wanted` issues:
 
 - [Powerpipe](https://github.com/turbot/powerpipe/labels/help%20wanted)
-- [Video Game Data Mod](https://github.com/turbot/powerpipe-mod-video-game/labels/help%20wanted)
+- [Video Games Mod](https://github.com/turbot/powerpipe-mod-video-game/labels/help%20wanted)
