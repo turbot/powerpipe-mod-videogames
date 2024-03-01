@@ -44,10 +44,10 @@ Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/vi
 unzip ~/Downloads/archive.zip
 ```
 
-TODO: Change starting instructions to not use `brew` - Start MySQL server:
+Start MySQL server:
 
 ```sh
-brew services start mysql
+mysqld
 ```
 
 Connect to MySQL:
