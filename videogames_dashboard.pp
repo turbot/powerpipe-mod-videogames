@@ -69,7 +69,7 @@ dashboard "videogames" {
 
     chart {
       type  = "column"
-      title = "Average Platform Meta Score per Genre"
+      title = "Top 10 Average Platform Meta Score per Genre"
       query = query.videogames_average_platform_meta_score_per_genre
       width = 6
     }
@@ -205,7 +205,8 @@ query "videogames_average_platform_meta_score_per_genre" {
     group by
       genres
     order by
-      "Average Platform Meta Score" desc;
+      "Average Platform Meta Score" desc
+    limit 10;
   EOQ
 }
 
