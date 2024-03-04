@@ -83,7 +83,7 @@ create table game_data (
 Load the dataset into the table:
 
 ```sh
-load data local infile '~/all_video_games.csv'
+load data local infile 'all_video_games.csv'
 into table game_data
 fields terminated by ','
 enclosed by '"'
