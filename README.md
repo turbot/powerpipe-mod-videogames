@@ -40,7 +40,7 @@ powerpipe mod install github.com/turbot/powerpipe-mod-videogames
 
 ### Configure Database
 
-Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games/versions/2) and extract it in the current directory:
+Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games/versions/2) and extract it in the dashboards directory:
 
 ```sh
 unzip ~/Downloads/archive.zip
