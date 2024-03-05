@@ -29,11 +29,13 @@ brew install turbot/tap/powerpipe
 brew install turbot/tap/mysql
 ```
 
-Clone:
+Install the mod:
 
 ```sh
-git clone https://github.com/turbot/powerpipe-mod-video-game.git
-cd powerpipe-mod-video-game
+mkdir dashboards
+cd dashboards
+powerpipe mod init
+powerpipe mod install github.com/turbot/powerpipe-mod-videogames
 ```
 
 ### Configure Database
