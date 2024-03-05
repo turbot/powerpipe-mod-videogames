@@ -1,6 +1,6 @@
 # Video Games Mod for Powerpipe
 
-Analyze video games data using MySQL and Powerpipe.
+Analyze video games data using [MySQL](https://www.mysql.com/) and [Powerpipe](https://powerpipe.io).
 
 ![image](https://github.com/turbot/powerpipe-mod-videogames/blob/add-dashboard/docs/videogames_dashboard_screenshot.png)
 
