@@ -40,7 +40,7 @@ powerpipe mod install github.com/turbot/powerpipe-mod-videogames
 
 ### Configure Database
 
-Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games/versions/2) and extract it in the current directory:
+Download the [Video Games Dataset](https://www.kaggle.com/datasets/beridzeg45/video-games/versions/2) and extract it in the dashboards directory:
 
 ```sh
 unzip ~/Downloads/archive.zip
@@ -105,13 +105,15 @@ set
    platforms_info = @platforms_info;
 ```
 
-## Usage
+### Browsing Dashboards
 
-Run the dashboard and specify the DB connection string:
+Start the dashboard server with the DB connection string:
 
 ```sh
 powerpipe server --database mysql://root@/video_game
 ```
+
+Browse and view your dashboards at **https://localhost:9033**.
 
 ## Open Source & Contributing
 
