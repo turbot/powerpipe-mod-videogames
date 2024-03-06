@@ -1,18 +1,8 @@
-# Video Games Mod for Powerpipe
+# Video Games Mod
 
 View dashboards to analyze video game platforms, developers, industry trends, and more.
 
-![image](https://raw.githubusercontent.com/turbot/powerpipe-mod-videogames/main/docs/videogames_dashboard_screenshot.png)
-
-## Overview
-
-Dashboards can help answer questions like:
-
-- How many video games are currently cataloged in the database?
-- What is the total number of game developers?
-- How many publishers are involved in the video games listed?
-- Which are the top 10 video games rated by user score, and what scores did they achieve?
-- What are the top 10 game genres by the number of games, and how many games are there in each genre?
+<img src="https://raw.githubusercontent.com/turbot/powerpipe-mod-videogames/main/docs/videogames_dashboard_screenshot.png" width="50%" type="thumbnail"/>
 
 ## Documentation
 
