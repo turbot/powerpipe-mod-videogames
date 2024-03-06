@@ -95,13 +95,15 @@ set
    platforms_info = @platforms_info;
 ```
 
-## Usage
+### Browsing Dashboards
 
-Run the dashboard and specify the DB connection string:
+Start the dashboard server with the DB connection string:
 
 ```sh
 powerpipe server --database mysql://root@/video_game
 ```
+
+Browse and view your dashboards at **http://localhost:9033**.
 
 ## Open Source & Contributing
 
